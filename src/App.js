@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LengthController from './components/LengthController';
+import Timer from './components/Timer';
+import TimerController from './components/TimerController';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div>Pomodoro Clock</div>
+        <LengthController type="session" length={25} />
+        <LengthController type="break" length={5} />
+        <Timer timerType="Session" />
+        <TimerController />
       </div>
     );
   }
