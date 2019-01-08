@@ -15,6 +15,9 @@ class App extends Component {
 
   handleUpdateLength = (type, action) => {
     const timeType = type === 'session' ? 'sessionTime' : 'breakTime';
+    const { isRunning } = this.state;
+
+    if (isRunning) return;
 
     if (action === 'inc') {
       this.setState(prevState => ({
@@ -53,11 +56,32 @@ class App extends Component {
     }
   };
 
+  changeTimer() {
+    this.setState(({ timerType, breakTime, sessionTime }) => {
+      if (timerType === 'session') {
+        return { timer: breakTime * 60, timerType: 'break' };
+      } else {
+        return { timer: sessionTime * 60, timerType: 'session' };
+      }
+    });
+
+    clearInterval(this.countDown);
+    this.startCountDown();
+  }
+
+  timeCheck() {
+    const { timer } = this.state;
+    if (timer < 0) {
+      this.changeTimer();
+    }
+  }
+
   startCountDown() {
     this.countDown = setInterval(() => {
       this.setState(prevState => ({
         timer: prevState.timer - 1
       }));
+      this.timeCheck();
     }, 1000);
   }
 
