@@ -13,6 +13,8 @@ class App extends Component {
     isRunning: false
   };
 
+  audioRef = React.createRef();
+
   handleUpdateLength = (type, action) => {
     const timeType = type === 'session' ? 'sessionTime' : 'breakTime';
     const { isRunning } = this.state;
@@ -72,6 +74,7 @@ class App extends Component {
   timeCheck() {
     const { timer } = this.state;
     if (timer < 0) {
+      this.audioRef.current.play();
       this.changeTimer();
     }
   }
@@ -87,6 +90,8 @@ class App extends Component {
 
   handleReset = () => {
     clearInterval(this.countDown);
+    this.audioRef.current.currentTime = 0;
+    this.audioRef.current.pause();
     this.setState(() => ({
       sessionTime: 25,
       breakTime: 5,
@@ -121,6 +126,13 @@ class App extends Component {
           onCountDown={this.handleCountDown}
           isRunning={isRunning}
           onResetTimer={this.handleReset}
+        />
+        <audio
+          id="beep"
+          src="https://res.cloudinary.com/dpc8imgk1/video/upload/v1547084390/alarm.mp3"
+          type="audio/mpeg"
+          preload="auto"
+          ref={this.audioRef}
         />
       </div>
     );
