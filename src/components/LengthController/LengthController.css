@@ -1,0 +1,93 @@
+.length-ctrl {
+  display: flex;
+}
+
+.length-label {
+  align-self: flex-start;
+  border-bottom: 1px solid #00f2f3;
+  text-transform: capitalize;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.length-label::before {
+  content: '';
+  padding: 0.5rem;
+  background-color: #00f2f3;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -0.5rem;
+  left: -0.8rem;
+}
+
+.length-buttons {
+  display: flex;
+  align-items: center;
+  border: 0.6rem solid #00f2f3;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 242, 243, 0.25);
+  position: relative;
+}
+
+.length-buttons::before {
+  content: '';
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  right: 3%;
+  bottom: 3%;
+  border: 0.5rem solid rgba(0, 242, 243, 0.6);
+  border-top: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid transparent;
+  border-radius: 50%;
+  z-index: -1;
+  animation: spin 5s infinite linear;
+}
+
+.length-buttons::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  border: 0.5rem solid #00f2f3;
+  border-right: 0.5rem solid transparent;
+  border-left: 0.5rem solid transparent;
+  border-radius: 50%;
+  z-index: -1;
+  animation: spin 5s linear infinite reverse;
+}
+
+.length {
+  font-size: 2.3rem;
+  padding: 0.5rem;
+}
+
+.length-btn-inc,
+.length-btn-dec {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin: 0.3rem;
+  color: inherit;
+}
+
+@media screen and (max-width: 620px) {
+  .length-ctrl {
+    margin: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .length-label {
+    margin-bottom: 1rem;
+  }
+}

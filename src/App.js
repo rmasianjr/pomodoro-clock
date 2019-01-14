@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import LengthController from './components/LengthController';
-import Timer from './components/Timer';
-import TimerController from './components/TimerController';
+import LengthController from './components/LengthController/LengthController';
+import Timer from './components/Timer/Timer';
+import TimerController from './components/TimerController/TimerController';
 
 class App extends Component {
   state = {
@@ -110,23 +110,27 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div>Pomodoro Clock</div>
-        <LengthController
-          type="session"
-          length={sessionTime}
-          onUpdateLength={this.handleUpdateLength}
-        />
-        <LengthController
-          type="break"
-          length={breakTime}
-          onUpdateLength={this.handleUpdateLength}
-        />
-        <Timer timerType={timerType} timer={timer} />
-        <TimerController
-          onCountDown={this.handleCountDown}
-          isRunning={isRunning}
-          onResetTimer={this.handleReset}
-        />
+        <h1 className="app-title">Pomodoro Clock</h1>
+        <div className="length-ctrl-box">
+          <LengthController
+            type="session"
+            length={sessionTime}
+            onUpdateLength={this.handleUpdateLength}
+          />
+          <LengthController
+            type="break"
+            length={breakTime}
+            onUpdateLength={this.handleUpdateLength}
+          />
+        </div>
+        <div className="time">
+          <Timer timerType={timerType} timer={timer} isRunning={isRunning} />
+          <TimerController
+            onCountDown={this.handleCountDown}
+            isRunning={isRunning}
+            onResetTimer={this.handleReset}
+          />
+        </div>
         <audio
           id="beep"
           src="https://res.cloudinary.com/dpc8imgk1/video/upload/v1547084390/alarm.mp3"

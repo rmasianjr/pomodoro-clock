@@ -1,0 +1,84 @@
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-label {
+  border-bottom: 2px solid #00f2f3;
+  padding: 1rem;
+  margin-right: 5rem;
+  text-transform: uppercase;
+  font-size: 2.3rem;
+  position: relative;
+}
+
+.timer-label::before {
+  content: '';
+  position: absolute;
+  padding: 0.5rem;
+  background: #00f2f3;
+  border-radius: 50%;
+  bottom: -5px;
+  left: -8px;
+}
+
+.timer-label::after {
+  content: '';
+  position: absolute;
+  width: 5rem;
+  height: 2px;
+  background: #00f2f3;
+  bottom: -2.4px;
+  transform: rotate(-30deg);
+  transform-origin: left;
+  margin-left: 0.9rem;
+}
+
+.timer-box {
+  width: 25rem;
+  height: 25rem;
+  background: rgba(0, 242, 243, 0.25);
+  border-radius: 50%;
+  border: 0.8rem solid rgba(0, 242, 243, 0.8);
+  border-style: dashed;
+  box-shadow: 0 0 5rem rgba(0, 242, 243, 0.8);
+  position: relative;
+}
+
+.timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #cedce0;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  border: 0.6rem solid rgba(0, 242, 243, 0.2);
+  box-shadow: 0 0 4rem 2rem rgba(150, 255, 255, 0.5),
+    inset 0 0 3px 8px rgba(21, 211, 233, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-left-label {
+  text-shadow: 0px 4px 3px #033, 0px 8px 13px #033;
+  font-size: 3.4rem;
+}
+
+@media screen and (max-width: 720px) {
+  .timer-container {
+    flex-direction: column;
+  }
+
+  .timer-label {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
+
+  .timer-label::after {
+    transform: rotate(145deg);
+  }
+}

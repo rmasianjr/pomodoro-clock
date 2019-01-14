@@ -1,0 +1,82 @@
+.timer-controller {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+span {
+  width: 8rem;
+  position: relative;
+  background-color: #00f2f3;
+  height: 2px;
+  display: inline-block;
+}
+
+.curve-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #00f2f3;
+  transform-origin: left center;
+  transform: rotate(145deg);
+}
+
+.short-line {
+  width: 6rem;
+}
+
+.short-line::after {
+  content: '';
+  padding: 0.5rem;
+  background-color: rgba(2, 254, 255, 1);
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+}
+
+.btn-box-playstop {
+  margin-left: 3.5rem;
+}
+
+.timer-controller button {
+  background: rgba(2, 254, 255, 0.2);
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin: 0.3rem;
+  color: inherit;
+  padding: 1rem 1.7rem;
+  border-radius: 50%;
+  border: 3px solid #00f2f3;
+  box-shadow: inset 0 0 1rem rgba(150, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 720px) {
+  .timer-controller {
+    flex-direction: row;
+  }
+
+  .btn-box {
+    margin: 0.5rem;
+  }
+
+  span {
+    width: 6rem;
+  }
+
+  .short-line {
+    width: 4rem;
+  }
+
+  .curve-line::before {
+    width: 150%;
+    transform: rotate(-45deg);
+  }
+}
