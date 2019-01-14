@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Timer.css';
 import Arc from '../Arc/Arc';
 
-const Timer = ({ timerType, timer }) => {
+const Timer = ({ timerType, timer, isRunning }) => {
   const minutes = Math.floor(timer / 60);
   const seconds = timer % 60;
   const timeLeft = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -26,7 +26,7 @@ const Timer = ({ timerType, timer }) => {
         <i className="icon ion-ios-timer" /> {timerType}
       </div>
       <div className="timer-box" style={timer < 60 ? warnStyle.shadow1 : {}}>
-        <Arc />
+        <Arc isRunning={isRunning}/>
         <div className="timer" style={timer < 60 ? warnStyle.shadow2 : {}}>
           <div
             id="time-left"

@@ -36,3 +36,7 @@
   border-bottom: 0.4rem solid transparent;
   animation: spin 3s linear infinite reverse;
 }
+
+.pause-anim {
+  animation-play-state: paused;
+}
