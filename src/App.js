@@ -133,7 +133,7 @@ class App extends Component {
         </div>
         <audio
           id="beep"
-          src="https://res.cloudinary.com/dpc8imgk1/video/upload/v1547084390/alarm.mp3"
+          src="https://res.cloudinary.com/dpc8imgk1/video/upload/v1547455581/alarm.mp3"
           type="audio/mpeg"
           preload="auto"
           ref={this.audioRef}
