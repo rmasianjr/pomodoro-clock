@@ -20,11 +20,10 @@ const Timer = ({ timerType, timer }) => {
     }
   };
   
-
   return (
     <div className="timer-container">
       <div id="timer-label" className="timer-label">
-        <i class="icon ion-ios-timer" /> {timerType}
+        <i className="icon ion-ios-timer" /> {timerType}
       </div>
       <div className="timer-box" style={timer < 60 ? warnStyle.shadow1 : {}}>
         <Arc />

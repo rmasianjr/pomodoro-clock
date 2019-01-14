@@ -80,6 +80,11 @@
   color: inherit;
 }
 
+.length-btn-inc:disabled,
+.length-btn-dec:disabled {
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 620px) {
   .length-ctrl {
     margin: 1rem;

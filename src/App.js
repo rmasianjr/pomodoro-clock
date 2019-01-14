@@ -116,11 +116,13 @@ class App extends Component {
             type="session"
             length={sessionTime}
             onUpdateLength={this.handleUpdateLength}
+            isRunning={isRunning}
           />
           <LengthController
             type="break"
             length={breakTime}
             onUpdateLength={this.handleUpdateLength}
+            isRunning={isRunning}
           />
         </div>
         <div className="time">

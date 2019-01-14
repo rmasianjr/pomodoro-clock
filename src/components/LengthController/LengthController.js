@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './LengthController.css';
 
-const LengthController = ({ type, length, onUpdateLength }) => (
+const LengthController = ({ type, length, onUpdateLength, isRunning }) => (
   <div className="length-ctrl">
     <div id={`${type}-label`} className="length-label">{`${type} Length`}</div>
     <div className="length-buttons">
@@ -10,9 +10,9 @@ const LengthController = ({ type, length, onUpdateLength }) => (
         className="length-btn-inc"
         id={`${type}-increment`}
         onClick={() => onUpdateLength(type, 'inc')}
-        disabled={length >= 60 ? true : false}
+        disabled={length >= 60 || isRunning ? true : false}
       >
-        <i class="icon ion-md-arrow-dropup" />
+        <i className="icon ion-md-arrow-dropup" />
       </button>
       <div id={`${type}-length`} className="length">
         {length}
@@ -21,9 +21,9 @@ const LengthController = ({ type, length, onUpdateLength }) => (
         className="length-btn-dec"
         id={`${type}-decrement`}
         onClick={() => onUpdateLength(type, 'dec')}
-        disabled={length <= 1 ? true : false}
+        disabled={length <= 1 || isRunning ? true : false}
       >
-        <i class="icon ion-md-arrow-dropdown" />
+        <i className="icon ion-md-arrow-dropdown" />
       </button>
     </div>
   </div>
@@ -32,7 +32,8 @@ const LengthController = ({ type, length, onUpdateLength }) => (
 LengthController.propTypes = {
   type: PropTypes.string.isRequired,
   length: PropTypes.number.isRequired,
-  onUpdateLength: PropTypes.func.isRequired
+  onUpdateLength: PropTypes.func.isRequired,
+  isRunning: PropTypes.bool.isRequired
 };
 
 export default LengthController;

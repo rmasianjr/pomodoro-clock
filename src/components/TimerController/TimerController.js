@@ -8,9 +8,9 @@ const TimerController = ({ onCountDown, isRunning, onResetTimer }) => (
       <span className="curve-line" />
       <button id="start_stop" onClick={() => onCountDown()}>
         {isRunning ? (
-          <i class="icon ion-md-pause" />
+          <i className="icon ion-md-pause" />
         ) : (
-          <i class="icon ion-md-play" />
+          <i className="icon ion-md-play" />
         )}
       </button>
       <span className="short-line" />
@@ -18,7 +18,7 @@ const TimerController = ({ onCountDown, isRunning, onResetTimer }) => (
     <div className="btn-box">
       <span />
       <button id="reset" onClick={() => onResetTimer()}>
-        <i class="icon ion-md-sync" />
+        <i className="icon ion-md-sync" />
       </button>
       <span className="short-line" />
     </div>
