@@ -8,15 +8,32 @@ const Timer = ({ timerType, timer }) => {
   const seconds = timer % 60;
   const timeLeft = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
+  const warnStyle = {
+    shadow1: {
+      boxShadow: '0 0 5rem rgba(255, 0, 0, 0.7)'
+    },
+    shadow2: {
+      boxShadow: '0 0 4rem 2rem rgba(255, 0, 0, 0.7), inset 0 0 3px 8px rgba(255, 0, 0, 0.7)'
+    },
+    color: {
+      color: 'red'
+    }
+  };
+  
+
   return (
     <div className="timer-container">
       <div id="timer-label" className="timer-label">
         <i class="icon ion-ios-timer" /> {timerType}
       </div>
-      <div className="timer-box">
+      <div className="timer-box" style={timer < 60 ? warnStyle.shadow1 : {}}>
         <Arc />
-        <div className="timer">
-          <div id="time-left" className="time-left-label">
+        <div className="timer" style={timer < 60 ? warnStyle.shadow2 : {}}>
+          <div
+            id="time-left"
+            className="time-left-label"
+            style={timer < 60 ? warnStyle.color : {}}
+          >
             {timeLeft}
           </div>
         </div>
