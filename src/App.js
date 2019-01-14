@@ -138,6 +138,28 @@ class App extends Component {
           preload="auto"
           ref={this.audioRef}
         />
+        <footer className="footer">
+          <p>
+            Created by:{' '}
+            <a
+              className="footer-link"
+              href="https://twitter.com/rmasianjr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ricardo Masian Jr.
+            </a>{' '}
+            |{' '}
+            <a
+              className="footer-link"
+              href="https://github.com/rmasianjr/pomodoro-clock"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View source code
+            </a>
+          </p>
+        </footer>
       </div>
     );
   }
